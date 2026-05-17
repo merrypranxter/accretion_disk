@@ -292,8 +292,6 @@ void main() {
   float transmit = 1.0;   // 1 = fully transparent, 0 = opaque
   bool  hitHorizon = false;
 
-  float prevY = pos.y;
-
   for (int i = 0; i < MAX_STEPS; i++) {
     float r = length(pos);
 
@@ -353,8 +351,6 @@ void main() {
         color += transmit * jCol;
       }
     }
-
-    prevY = pos.y;
 
     // ── Propagate with geodesic deflection ───────────────────────
     vec3 accel = geodesicForce(pos);
