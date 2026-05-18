@@ -1,0 +1,17 @@
+{
+  "name": "accretion-disk",
+  "version": "1.0.0",
+  "description": "Real-time raymarched accretion disk — Novikov–Thorne thin disk model in WebGL",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.165.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}
