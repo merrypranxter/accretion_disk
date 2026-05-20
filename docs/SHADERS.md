@@ -8,7 +8,8 @@ for extending or tuning them.
 
 ## 1 · Shared Infrastructure
 
-All shaders follow a common pattern (see `disk.frag` as the canonical reference):
+The raymarching shaders (`disk.frag`, `kerr.frag`, `corona.frag`, `jet.frag`)
+follow a common pattern (see `disk.frag` as the canonical reference):
 
 ```
 #version 300 es
@@ -22,6 +23,9 @@ uniform float uFov;
 
 out vec4 fragColor;
 ```
+
+`lensing.frag` is the exception: it is an analytical screen-space shader and
+uses only `uResolution`, `uTime`, and `uInclination`.
 
 ### 1.1 Camera Ray Construction
 
@@ -308,7 +312,7 @@ to reduce axis-aligned artifacts between octaves.
 
 ### 7.2 `blackbodyRGB(T)`
 
-Cubic polynomial approximation of the Planckian locus, valid from 800K to 65,000K.
+Cubic polynomial approximation of the Planckian locus, valid from 800K to 6.5×10⁷ K.
 Returns **linear** sRGB values (no gamma).
 
 ### 7.3 `starField(dir)`
@@ -323,7 +327,7 @@ Milky Way diffuse component is added.
 
 | Shader | MAX_STEPS | STEP_SIZE | Typical cost (1080p, mobile) |
 |---|---|---|---|
-| disk.frag | 380 | 0.08 | ~4 ms |
+| disk.frag | 300 | 0.08 | ~4 ms |
 | kerr.frag | 420 | 0.08 | ~5.5 ms |
 | corona.frag | 280 | 0.10 | ~3.5 ms |
 | jet.frag | 300 | 0.14 | ~3 ms |

@@ -1,7 +1,7 @@
 # Accretion Disk Visualization Suite
 
 Real-time raymarched astrophysical simulations running in WebGL via Three.js —
-four scientifically-grounded shaders covering the full landscape of black hole
+five scientifically-grounded shaders covering the full landscape of black hole
 accretion physics from thin-disk thermodynamics to relativistic jet beaming.
 
 ---
@@ -162,6 +162,10 @@ npm run dev
 | Schwarzschild thin disk | [http://localhost:5173](http://localhost:5173) |
 | Kerr thin disk | [http://localhost:5173/kerr.html](http://localhost:5173/kerr.html) |
 | Gravitational lensing | [http://localhost:5173/lensing.html](http://localhost:5173/lensing.html) |
+
+These pages are available in the Vite dev server (`npm run dev`). The default
+`vite build` output currently emits `index.html` unless multi-page build inputs
+are explicitly configured.
 
 ## Controls
 

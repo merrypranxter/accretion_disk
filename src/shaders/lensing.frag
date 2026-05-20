@@ -128,11 +128,11 @@ vec3 sourceTexture(vec2 srcUV) {
 
   // Concentric rings every 5M
   float ringDist = abs(fract(r_src / 5.0 + 0.5) - 0.5);
-  float ring = smoothstep(0.05, 0.02, ringDist);
+  float ring = 1.0 - smoothstep(0.02, 0.05, ringDist);
 
   // Radial spokes every 30°
   float spokeDist = abs(fract(phi_src / (3.14159 / 6.0) + 0.5) - 0.5);
-  float spoke = smoothstep(0.06, 0.02, spokeDist);
+  float spoke = 1.0 - smoothstep(0.02, 0.06, spokeDist);
 
   // Checkerboard background
   vec2 check = floor(srcUV / 4.0);
@@ -188,7 +188,6 @@ bool lensMap(vec2 screen, out vec2 srcPos, out int winding) {
 
   // Apply observer inclination: project into inclined source plane
   float ci = cos(uInclination);
-  float si = sin(uInclination);
   srcPos = vec2(srcFlat.x, srcFlat.y * ci);
 
   return true;
@@ -203,7 +202,7 @@ bool lensMap(vec2 screen, out vec2 srcPos, out int winding) {
 float einsteinRing(float b) {
   float theta_E = sqrt(4.0 * (D_SRC - D_OBS) / (D_OBS * D_SRC));
   float delta   = abs(b - D_OBS * theta_E);
-  return smoothstep(0.35, 0.0, delta) * 0.9;
+  return (1.0 - smoothstep(0.0, 0.35, delta)) * 0.9;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

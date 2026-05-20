@@ -213,7 +213,7 @@ float jetDensity(vec3 pos) {
   if (h < 1.5) return 0.0;
   float rCyl    = length(vec2(pos.x, pos.z));
   float opening = 0.10 * h + 0.25;  // tighter collimation for high-spin BZ jet
-  float inJet   = smoothstep(opening, opening * 0.25, rCyl);
+  float inJet   = 1.0 - smoothstep(opening * 0.25, opening, rCyl);
   float falloff = exp(-h / 18.0);
   // Knotty structure from Kelvin-Helmholtz: see jet.frag for full treatment
   float knot    = 0.7 + 0.3 * sin(h * 2.1 - uTime * 3.0);

@@ -290,8 +290,6 @@ void main() {
 
     // ── Approaching jet (y > 0) ──────────────────────────────────────
     if (transmit > 0.005) {
-      // Sample jet density regardless of pos.y sign; distinguish after
-      vec3 posApp = pos;  // y component is already positive or negative
       float jDens = helixDensity(pos);
 
       if (jDens > 0.0003) {
