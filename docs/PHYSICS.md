@@ -196,7 +196,7 @@ The peak temperature for Eddington-rate accretion scales as:
 T_peak ≈ 6.3×10⁶ K · (M / M_☉)^(−1/4) · (Ṁ / Ṁ_Edd)^(1/4)
 ```
 
-In the shader, T_peak = 8×10⁶ K provides a visually bright disk.
+In the shader, T_peak = 1.4×10⁷ K provides a visually bright disk.
 
 ---
 
